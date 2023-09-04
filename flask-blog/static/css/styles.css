@@ -1,0 +1,27 @@
+.shadow-t {
+    width: 500px;
+    height: 350px;
+    margin-top: 200px;
+    background-color: rgb(247, 235, 213);
+    border-radius: 10px;
+    box-shadow: inset -10px -10px 10px rgb(202, 192, 174),
+                inset 10px 10px 10px rgb(226, 216, 195);
+}
+
+.search_css {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.article {
+    display: block;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    transition: transform 0.2s;
+}

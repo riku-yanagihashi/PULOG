@@ -1,0 +1,54 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}新規登録ページ{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+<div class="container" style="margin: 0 auto; width: 530px;"  >
+    <div class="justify-content-center mt-5" style="width: 500px;">
+        <div class="shadow-t">
+            <div class="col-md-6" style="width: 500px; margin-right: 0%;">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">新規アカウント登録</h2>
+                        <form method="POST" action="/signup">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">メールアドレス</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">ユーザー名</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">パスワード</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">登録する</button>
+                        </form>
+                        <p class="mt-3 text-center">すでにアカウントをお持ちですか？ <a href="{{ url_for('login') }}">ログイン</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+</style>
+
+<!-- <div class="conta">
+    <h1>ユーザー登録</h1>
+<form method="POST">
+    <label for="">ユーザー名</label>
+    <input type="text" name="username">
+    <label for="">パスワード</label>
+    <input type="password" name="password">
+    <input type="submit" value="新規登録">
+    <input type="button" onclick="location.href='./login'" value="アカウントをお持ちの方">
+</form>
+</div> -->
+
+
+
+{% endblock %}

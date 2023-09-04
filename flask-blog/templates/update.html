@@ -1,0 +1,34 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}編集ページ{% endblock %}
+{% block content %}
+<div>
+    <h1>記事を編集</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">タイトル</label>
+            <input type="text" class="form-control" name="title" maxlength="27" required value="{{ post.title }}">
+        </div>
+        <div class="form-group">
+            <label for="body">内容</label>
+            <textarea class="form-control" name="body" rows="10" required>{{ post.body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">編集を確定</button>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">サムネイル</label>
+            <input type="file" class="form-control" id="thumbnail" name="thumbnail">
+        </div>
+        <div class="mb-3">
+            <label>現在のサムネイル</label>
+            {% if post.thumbnail %}
+                <img src="{{ url_for('static', filename='thumbnails/' + post.thumbnail) }}" alt="現在のサムネイル" width="200">
+            {% else %}
+                <p>サムネイルがありません。</p>
+            {% endif %}
+        </div>
+
+    </form>
+</div>
+<style>
+
+</style>
+{% endblock %}

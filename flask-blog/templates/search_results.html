@@ -1,0 +1,30 @@
+<!-- search_results.html -->
+
+{% extends "bootstrap/base.html" %}
+{% block title %}検索結果{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+<div class="container-fluid">
+    <div class="row">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 search_css">
+            <h2 class="mb-4">検索結果</h2>
+            <div class="article-list" style="margin-top: 20px;">
+                {% if results %}
+                {% for post in results %}
+                <a class="article" href="{{ url_for('detail', post_id=post.id) }}" style="width: 500px;">
+                    {% if post.thumbnail %}
+                    <img src="{{ url_for('static', filename='thumbnails/' + post.thumbnail) }}" alt="サムネイル" width="100%" height="auto">
+                    {% endif %}
+                        <h2 class="article-title">{{ post.title }}</h2>
+                </a>
+                {% endfor %}
+                {% else %}
+                <p>該当する記事が見つかりませんでした。</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}

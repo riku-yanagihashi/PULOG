@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}新規作成ページ{% endblock %}
+{% block content %}
+<div>
+    <h1>記事を書く</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">タイトル</label>
+            <input type="text" class="form-control" name="title" maxlength="27" required>
+        </div>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">サムネイル画像</label>
+            <input type="file" class="form-control" id="thumbnail" name="thumbnail">
+        </div>
+        <div class="form-group">
+            <label for="body">内容</label>
+            <textarea class="form-control" name="body" rows="10" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">サムネイル</label>
+            <input type="file" class="form-control" id="thumbnail" name="thumbnail">
+        </div>
+        <button type="submit" class="btn btn-primary">記事を投稿</button>
+    </form>
+    {% if post.thumbnail %}
+    <img src="{{ url_for('static', filename='thumbnails/' + post.thumbnail) }}" alt="サムネイル">
+    {% endif %}
+</div>
+<style>
+
+</style>
+{% endblock %}
